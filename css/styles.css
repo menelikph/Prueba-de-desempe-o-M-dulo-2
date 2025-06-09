@@ -1,0 +1,541 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Knewave&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+/*==============================
+  CSS Custom Properties (Variables)
+  Define color and font variables for easier theming and reuse.
+==============================*/
+:root {
+  --color-principal: #8beff7; /* Primary accent color used for highlights and interactive elements */
+  --color-secundario: #4bb8c0; /* Secondary accent color with transparency, ideal for overlays or backgrounds */
+  --fuente-principal: "Roboto Condensed", sans-serif; /* Font for headings and logos */
+  --fuente-secundaria: "Poppins", sans-serif; /* Font for body text and general content */
+}
+
+/* Reset y base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #000000;
+  color: #fff7f7;
+}
+/* Animaciones */
+.fade-in {
+  animation: fadeIn 1.2s ease both;
+}
+
+header {
+  position: fixed; /* Fix header at top */
+  top: 0;
+  left: 0;
+  margin-bottom: 2rem;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  width: 100%; /* Full width */
+  padding: 1rem; /* Vertical and horizontal padding */
+  filter: drop-shadow(60px); /* Drop shadow effect for depth */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out child elements */
+  align-items: center; /* Center items vertically */
+  z-index: 100; /* Ensure header stays on top */
+  backdrop-filter: blur(10px); /* Blur background behind header */
+}
+
+header h1 {
+  color: var(--color-principal);
+  font-family: var(--fuente-principal);
+  margin-left: 3rem;
+  font-size: clamp(2em, 4vw, 8em);
+}
+
+span {
+  color: #8beff7;
+}
+
+.menu {
+  display: none; /* Hide by default */
+}
+/* --------- Medium Screens (<=1251px) --------- */
+
+.home {
+  display: flex; /* Flex layout */
+  flex-flow: row wrap; /* Allow wrapping */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  column-gap: 8rem; /* Space between columns */
+  background-color: rgb(0, 0, 0); /* Black background */
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Home Section Heading */
+.home .home-content h1 {
+  text-align: center;
+  font-size: 5rem; /* Very large heading */
+  font-weight: 700; /* Bold */
+  line-height: 1.3; /* Line height for readability */
+  margin-bottom: 2rem;
+}
+
+.home-content {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+/* Subtitle styling */
+.home-content h3 {
+  font-size: 2rem; /* Large subtitle */
+  margin-bottom: 2rem; /* Space below */
+  font-weight: 700; /* Bold */
+}
+
+.home-content p {
+  font-size: 1.6rem; /* Paragraph text size */
+}
+
+/*==============================
+  Home Image Styling
+  Circular images with gradient masking for fade effect.
+==============================*/
+.home-img {
+  margin: 1.4rem;
+  border-radius: 50%; /* Circular container */
+  min-width: 48rem; /* Minimum size */
+  width: 47vw; /* Responsive width */
+}
+
+.home-img img {
+  width: 100%; /* Full container width */
+  margin-top: 22px; /* Space above */
+  position: relative; /* Relative positioning */
+  border-radius: 33px; /* Rounded corners */
+  transition: 0.4s linear; /* Smooth transitions */
+  mask-image: linear-gradient(
+    transparent 5%,
+    /* Transparent top */ rgb(255, 255, 255) 30%,
+    /* Solid in middle */ transparent 100% /* Transparent bottom */
+  );
+}
+
+.about-info {
+  text-align: center;
+  font-family: var(--fuente-secundaria);
+  font-size: 1.4rem;
+}
+
+.about-title {
+  align-items: center;
+}
+
+/*==============================
+  Download CV Button
+  Styled button with colors, padding, and hover effects.
+==============================*/
+.download-cv {
+  width: 10rem;
+  height: 3rem;
+  font-family: var(--fuente-secundaria); /* Body font */
+  font-size: 1rem;
+  padding: 10px 20px; /* Padding inside button */
+  background-color: var(--color-principal); /* Accent background */
+  border: none; /* No border */
+  border-radius: 20px; /* Rounded pill shape */
+  margin-top: 2rem; /* Spacing above */
+  cursor: pointer; /* Pointer cursor */
+  box-shadow: 0px 10px 13px -7px #000000,
+    1px -5px 20px 9px rgba(163, 138, 231, 0.14); /* Soft shadow */
+}
+
+.download-cv:hover {
+  background-color: var(--color-secundario); /* Darker accent on hover */
+  box-shadow: none; /* Remove shadow on hover */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s;
+}
+nav a:hover {
+  background: #444;
+  border-radius: 5px;
+}
+
+.about {
+  display: flex;
+  background: #000000;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 1%,
+    rgba(75, 184, 192, 1) 86%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  grid-template-columns: repeat(2, 4fr);
+  width: 100%;
+  text-align: justify;
+  height: 60vh;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem 10rem;
+  justify-content: center;
+  align-content: center;
+  /* flex-direction: column; */
+}
+
+.about p {
+  font-size: 1.4rem;
+}
+
+.about-title {
+  font-family: var(--fuente-principal);
+  display: flex; /* Flex container */
+  flex-direction: column; /* Stack vertically */
+  justify-content: start; /* Align to top */
+  font-size: 4rem; /* Title font size */
+}
+
+/* Button margin inside about */
+.about button {
+  width: 40rem; /* Space above buttons */
+}
+
+/* Typing effect */
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #333;
+  width: 0;
+  animation: typing 2s steps(110, end) forwards, blink 0.95s step-end infinite;
+}
+
+/*==============================
+  Skills Section
+  Centered grid layout for skill items.
+==============================*/
+#skills {
+  max-width: 100%; /* Max container width */
+  margin: 40px auto; /* Center horizontally with margin */
+  padding: 70px; /* Padding inside container */
+  text-align: center; /* Center text */
+}
+
+#skills h2 {
+  font-size: 5rem; /* Large heading */
+  color: var(--color-principal); /* Accent color */
+  font-family: var(--fuente-principal); /* Title font */
+  margin-bottom: 3rem;
+}
+
+#skills ul {
+  display: grid; /* Grid layout */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(120px, 1fr)
+  ); /* Responsive columns */
+  gap: 2rem; /* Gap between skill items */
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+}
+
+#skills li {
+  background-color: var(
+    --color-secundario
+  ); /* Dark background for each skill */
+  margin: 10px auto; /* Vertical margin and center horizontally */
+  padding: 30px 30px; /* Padding inside each item */
+  width: fit-content; /* Width adjusts to content */
+  min-width: 10rem; /* Minimum width */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1.1rem; /* Font size */
+  color: #ffffff; /* White text */
+  transition: background 0.3s; /* Smooth background transition */
+}
+
+#skills li:hover {
+  background-color: #333333; /* Lighter background on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Grid en Proyectos */
+.grid-proyectos {
+  margin: 1rem;
+  display: grid;
+  color: #000000;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.proyectos h1 {
+  font-size: 5rem;
+  color: var(--color-principal);
+  font-family: var(--fuente-principal);
+  margin-bottom: 3rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: var(--color-principal);
+  border: 1px solid var(--color-principal);
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 2px 2px 10px rgba(67, 170, 139, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.07);
+  box-shadow: 2px 2px 14px rgba(219, 250, 255, 0.2);
+}
+
+/* ========== Contact Section ========== */
+
+/* Main contact section container */
+.contact {
+  margin-top: 9rem;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+/* Contact section title */
+.contact h2 {
+  font-family: var(--fuente-principal);
+  margin: 20px;
+  text-align: center;
+  font-size: 5rem;
+}
+
+/* Form wrapper */
+.contact form {
+  width: 50rem;
+}
+
+/* General form layout */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Label styles */
+label {
+  font-size: 1rem;
+  color: var(--color-principal);
+}
+
+/* Input and textarea styles */
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #000;
+  resize: vertical;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+  background: linear-gradient(
+    115deg,
+    rgba(103, 19, 152, 1) 19%,
+    rgba(150, 44, 168, 1) 100%
+  );
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* Submit button hover effect */
+input[type="submit"]:hover {
+  background: linear-gradient(115deg, var(--color-principal) 19%);
+}
+
+/* Image section next to the contact form */
+.contact-img img {
+  width: 50rem;
+  height: 100%;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+form input,
+form textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form button {
+  background: #333;
+  color: #fff;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #555;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  background: var(--color-secundario);
+}
+
+footer a {
+  color: #222;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  nav {
+    display: flex;
+    padding: 1rem;
+    position: absolute;
+    top: 100%;
+    overflow: hidden;
+    right: 2rem;
+    width: 11rem;
+    border: 1px solid rgba(255, 231, 231, 0.1);
+    border-radius: 2rem;
+    padding: 1rem solid;
+    background-color: #050505;
+    transition: 0.2s ease opacity;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .menu {
+    display: flex;
+    margin-right: 3rem;
+  }
+
+  /* Show nav menu if checkbox is checked */
+  #menu:checked + nav {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .home-img {
+    margin: 1.4rem;
+    border-radius: 40%; /* Circular container */
+    min-width: 48rem; /* Minimum size */
+    width: 47vw; /* Responsive width */
+  }
+  .about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .about button {
+    width: 13rem;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  #skills ul {
+    grid-template-columns: 1fr;
+  }
+
+  #skills li {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  /* Contact layout for smaller screens */
+  .contact {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+  }
+
+  .contact form {
+    width: 100%;
+    padding: 2rem 10rem;
+  }
+
+  .contact-img img {
+    display: none; /* Hide contact image on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-img {
+    margin: 1.4rem;
+    border-radius: 50%; /* Circular container */
+    min-width: 48rem; /* Minimum size */
+    width: 47vw; /* Responsive width */
+  }
+  
+  .home-img img {
+    display: none;
+  }
+  .grid-proyectos {
+    margin: 4rem;
+    display: grid;
+    color: #000000;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+}
+
+@media (max-width: 425px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact form {
+    width: 100%;
+    padding: 2rem;
+}
+}

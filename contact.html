@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/dfb7936a62.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <h1>MENELIK</h1>
+      <label class="menu" for="menu" style="font-size: 27px">☰</label>
+      <!-- Hamburger menu icon for mobile view, toggles the menu visibility -->
+
+      <input id="menu" hidden type="checkbox" />
+      <!-- Hidden checkbox to control the menu toggle -->
+      <nav>
+        <ul>
+          <li><a href="index.html">🏠 Home</a></li>
+          <li><a href="index.html">👤 About Me</a></li>
+          <li><a href="index.html">🛠️ skills</a></li>
+          <li><a href="index.html">📁 Proyects</a></li>
+          <li><a href="#contacto">✉️ Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+      <div class="contact-form">
+        <h2>Contact</h2>
+
+        <form action="#" method="post">
+          <!-- Form to simulate sending data -->
+
+          <label for="name">Name:</label><br />
+          <input type="text" id="name" name="name" required />
+          <br /><br />
+
+          <label for="email">Email:</label><br />
+          <input type="email" id="email" name="email" required />
+          <br /><br />
+
+          <label for="message">Message:</label><br />
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <br /><br />
+
+          <input type="submit" value="Send" />
+          <!-- Submit button to send the form -->
+        </form>
+      </div>
+
+      <div class="contact-img">
+        <img class="photo" src="./img/Photo1.jpg" alt="" />
+        <!-- Image next to contact form for visual balance -->
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Mi Portafolio</p>
+      <div>
+        <a href="#">🌐 Web</a> | <a href="#">📸 Instagram</a> |
+        <a href="#">🐱 GitHub</a>
+      </div>
+    </footer>
+  </body>
+</html>
