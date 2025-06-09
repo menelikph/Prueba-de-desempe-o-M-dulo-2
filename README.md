@@ -20,7 +20,6 @@ The design adapts to different screen sizes (desktop, tablet, and mobile) using 
 - ✅ **CSS Grid** for organizing project cards
 - ✅ **Flexbox** for skill items layout and navigation bar
 - ✅ **Responsive design** using Media Queries
-- ✅ **Typing effect animation** using `@keyframes`
 - ✅ **Fade-in animations** on scroll (simulated using CSS)
 - ✅ **Modern styling** with hover effects, shadows, and transitions
 - ✅ **HTML5 form validation** with styled contact form
